@@ -1,1053 +1,884 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhammad Usman | HackerSSG</title>
 
-<title>Muhammad Usman | HackerSSG</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#020617;
-    color:white;
-    overflow-x:hidden;
-    font-family:'Inter',sans-serif;
-    line-height:1.7;
-}
-
-/* ================= BACKGROUND ================= */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:
-    linear-gradient(rgba(0,255,170,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,170,0.03) 1px, transparent 1px);
-    background-size:40px 40px;
-    z-index:-4;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:
-    radial-gradient(circle at 15% 15%, rgba(0,255,170,0.16), transparent 28%),
-    radial-gradient(circle at 85% 20%, rgba(0,174,255,0.18), transparent 30%),
-    radial-gradient(circle at 50% 85%, rgba(139,92,246,0.18), transparent 35%),
-    linear-gradient(135deg,#020617 0%,#030712 45%,#06111f 100%);
-    z-index:-3;
-}
-
-.matrix{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    opacity:0.07;
-    z-index:-2;
-    background-image:
-    repeating-linear-gradient(
-        90deg,
-        transparent 0 18px,
-        rgba(0,255,170,0.2) 19px,
-        transparent 20px
-    );
-    animation:matrix 8s linear infinite;
-}
-
-@keyframes matrix{
-    from{
-        transform:translateY(-60px);
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    to{
-        transform:translateY(60px);
+
+    html {
+      scroll-behavior: smooth;
     }
-}
 
-/* ================= GENERAL ================= */
-
-.container{
-    width:min(92%,1200px);
-    margin:auto;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-section{
-    padding:100px 0;
-}
-
-.section-title{
-    font-size:clamp(32px,5vw,52px);
-    margin-bottom:14px;
-    font-family:'Orbitron',sans-serif;
-}
-
-.section-title span{
-    color:#00ffaa;
-}
-
-.section-subtitle{
-    color:#94a3b8;
-    max-width:780px;
-    margin-bottom:40px;
-}
-
-/* ================= NAVBAR ================= */
-
-nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    z-index:999;
-    background:rgba(2,6,23,0.82);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(0,255,170,0.15);
-}
-
-.nav-inner{
-    height:74px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.logo{
-    font-size:24px;
-    font-weight:800;
-    font-family:'Orbitron',sans-serif;
-    color:#00ffaa;
-    text-shadow:
-    0 0 12px rgba(0,255,170,0.9),
-    0 0 25px rgba(0,212,255,0.45);
-}
-
-.logo::before{
-    content:"> ";
-    color:#00d4ff;
-}
-
-.nav-links{
-    display:flex;
-    gap:24px;
-}
-
-.nav-links a{
-    color:#dbeafe;
-    transition:0.3s;
-    font-size:14px;
-}
-
-.nav-links a:hover{
-    color:#00ffaa;
-    text-shadow:0 0 10px rgba(0,255,170,0.9);
-}
-
-.menu-btn{
-    display:none;
-    background:none;
-    border:none;
-    color:#00ffaa;
-    font-size:28px;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    padding-top:90px;
-}
-
-.hero-grid{
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    gap:40px;
-    align-items:center;
-}
-
-.badges{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-bottom:22px;
-}
-
-.badge{
-    padding:8px 14px;
-    border-radius:999px;
-    border:1px solid rgba(0,255,170,0.25);
-    background:rgba(15,23,42,0.7);
-    color:#67e8f9;
-    font-size:13px;
-}
-
-.hero h1{
-    font-size:clamp(48px,7vw,82px);
-    line-height:1.05;
-    margin-bottom:20px;
-    font-family:'Orbitron',sans-serif;
-}
-
-.hero h1 span{
-    color:#00ffaa;
-    text-shadow:
-    0 0 12px rgba(0,255,170,0.9),
-    0 0 40px rgba(0,212,255,0.45);
-}
-
-.glitch{
-    animation:glitch 3s infinite;
-}
-
-@keyframes glitch{
-    0%,92%,100%{
-        transform:translate(0);
+    body {
+      font-family: "Courier New", monospace;
+      background: #020617;
+      color: #e5e7eb;
+      overflow-x: hidden;
+      line-height: 1.6;
     }
-    93%{
-        transform:translate(2px,-2px);
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+      background-size: 42px 42px;
+      z-index: -3;
     }
-    94%{
-        transform:translate(-2px,2px);
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(34, 197, 94, 0.15), transparent 30%),
+        radial-gradient(circle at 80% 10%, rgba(6, 182, 212, 0.15), transparent 25%),
+        radial-gradient(circle at 50% 90%, rgba(168, 85, 247, 0.12), transparent 35%);
+      z-index: -2;
     }
-    95%{
-        transform:translate(2px,2px);
+
+    .matrix {
+      position: fixed;
+      inset: 0;
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: -1;
+      background-image:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 18px,
+          rgba(34, 197, 94, 0.25) 19px,
+          transparent 20px
+        );
+      animation: matrixMove 9s linear infinite;
     }
-}
 
-.hero-text{
-    color:#cbd5e1;
-    max-width:720px;
-    margin-bottom:30px;
-    font-size:18px;
-}
+    @keyframes matrixMove {
+      from { transform: translateY(-60px); }
+      to { transform: translateY(60px); }
+    }
 
-.btn-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:14px;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.btn{
-    display:inline-block;
-    padding:14px 24px;
-    border-radius:14px;
-    font-weight:700;
-    transition:0.3s;
-    font-size:14px;
-}
+    .container {
+      width: min(92%, 1180px);
+      margin: auto;
+    }
 
-.btn-primary{
-    background:linear-gradient(135deg,#00ffaa,#00d4ff,#8b5cf6);
-    color:#020617;
-    box-shadow:0 0 25px rgba(0,255,170,0.35);
-}
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      background: rgba(2, 6, 23, 0.86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(34, 211, 238, 0.2);
+    }
 
-.btn-primary:hover{
-    transform:translateY(-4px);
-    box-shadow:
-    0 0 18px rgba(0,255,170,0.7),
-    0 0 35px rgba(0,212,255,0.45);
-}
+    .nav-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-.btn-outline{
-    border:1px solid rgba(255,255,255,0.15);
-    color:white;
-    background:rgba(15,23,42,0.5);
-}
+    .logo {
+      color: #22c55e;
+      font-size: 22px;
+      font-weight: 900;
+      text-shadow: 0 0 18px rgba(34, 197, 94, 0.8);
+    }
 
-.btn-outline:hover{
-    color:#00ffaa;
-    border-color:#00ffaa;
-    transform:translateY(-4px);
-}
+    .logo::before {
+      content: "> ";
+      color: #22d3ee;
+    }
 
-/* ================= TERMINAL ================= */
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
 
-.terminal{
-    background:rgba(2,6,23,0.78);
-    border-radius:24px;
-    overflow:hidden;
-    border:1px solid rgba(0,255,170,0.18);
-    box-shadow:0 0 40px rgba(0,255,170,0.12);
-    position:relative;
-}
+    .nav-links a {
+      color: #cbd5e1;
+      font-size: 14px;
+      transition: 0.25s;
+    }
 
-.terminal::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
+    .nav-links a:hover {
+      color: #22c55e;
+      text-shadow: 0 0 14px #22c55e;
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .badge {
+      border: 1px solid rgba(34, 211, 238, 0.35);
+      background: rgba(15, 23, 42, 0.7);
+      color: #67e8f9;
+      padding: 8px 13px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.02;
+      margin-bottom: 22px;
+      color: #f8fafc;
+      position: relative;
+      text-shadow: 0 0 22px rgba(34, 211, 238, 0.35);
+    }
+
+    h1 span {
+      color: #22c55e;
+      text-shadow: 0 0 24px rgba(34, 197, 94, 0.8);
+    }
+
+    .glitch {
+      animation: glitch 2.8s infinite;
+    }
+
+    @keyframes glitch {
+      0%, 92%, 100% { transform: translate(0); }
+      93% { transform: translate(2px, -2px); }
+      94% { transform: translate(-2px, 2px); }
+      95% { transform: translate(2px, 2px); }
+      96% { transform: translate(-2px, -1px); }
+    }
+
+    .hero-text {
+      color: #cbd5e1;
+      font-size: 17px;
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-weight: 900;
+      transition: 0.25s;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #16a34a, #06b6d4);
+      color: #020617;
+      box-shadow: 0 0 24px rgba(34, 197, 94, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 34px rgba(34, 197, 94, 0.65);
+    }
+
+    .btn-outline {
+      color: #e2e8f0;
+      border: 1px solid rgba(34, 211, 238, 0.35);
+      background: rgba(15, 23, 42, 0.45);
+    }
+
+    .btn-outline:hover {
+      color: #22c55e;
+      border-color: #22c55e;
+      transform: translateY(-4px);
+      box-shadow: 0 0 25px rgba(34, 197, 94, 0.3);
+    }
+
+    .terminal {
+      border: 1px solid rgba(34, 211, 238, 0.35);
+      background: rgba(2, 6, 23, 0.78);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 0 50px rgba(34, 211, 238, 0.16);
+      position: relative;
+    }
+
+    .terminal::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
         transparent,
-        rgba(0,255,170,0.05),
+        rgba(34, 197, 94, 0.06),
         transparent
-    );
-    animation:scan 4s linear infinite;
-    pointer-events:none;
-}
-
-@keyframes scan{
-    from{
-        transform:translateY(-100%);
-    }
-    to{
-        transform:translateY(100%);
-    }
-}
-
-.terminal-top{
-    display:flex;
-    gap:8px;
-    padding:14px 18px;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-    background:rgba(15,23,42,0.95);
-}
-
-.dot{
-    width:12px;
-    height:12px;
-    border-radius:50%;
-}
-
-.dot:nth-child(1){
-    background:#00ffaa;
-}
-
-.dot:nth-child(2){
-    background:#facc15;
-}
-
-.dot:nth-child(3){
-    background:#ef4444;
-}
-
-.terminal-body{
-    padding:24px;
-}
-
-.line{
-    margin-bottom:12px;
-    color:#cbd5e1;
-    font-family:monospace;
-}
-
-.cmd{
-    color:#00ffaa;
-}
-
-.cyan{
-    color:#22d3ee;
-}
-
-.purple{
-    color:#c084fc;
-}
-
-.red{
-    color:#f87171;
-}
-
-.cursor{
-    width:10px;
-    height:18px;
-    background:#00ffaa;
-    display:inline-block;
-    animation:blink 1s infinite;
-}
-
-@keyframes blink{
-    50%{
-        opacity:0;
-    }
-}
-
-/* ================= CARDS ================= */
-
-.grid-4{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-.grid-3{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.grid-2{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-}
-
-.card{
-    background:rgba(15,23,42,0.75);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:24px;
-    padding:26px;
-    position:relative;
-    overflow:hidden;
-    transition:0.3s;
-    backdrop-filter:blur(14px);
-}
-
-.card::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(0,255,170,0.07),
-        transparent
-    );
-    transform:translateX(-100%);
-    transition:0.7s;
-}
-
-.card:hover::before{
-    transform:translateX(100%);
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    border-color:rgba(0,255,170,0.5);
-    box-shadow:0 0 35px rgba(0,255,170,0.12);
-}
-
-.card h3{
-    margin-bottom:10px;
-    color:#67e8f9;
-}
-
-.card p{
-    color:#cbd5e1;
-    font-size:15px;
-}
-
-.impact-number{
-    font-size:36px;
-    font-weight:800;
-    color:#00ffaa;
-    margin-bottom:10px;
-    text-shadow:0 0 18px rgba(0,255,170,0.7);
-}
-
-/* ================= TAGS ================= */
-
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-}
-
-.tag{
-    padding:10px 14px;
-    border-radius:999px;
-    border:1px solid rgba(0,255,170,0.18);
-    background:rgba(15,23,42,0.7);
-    color:#e2e8f0;
-    transition:0.3s;
-}
-
-.tag:hover{
-    color:#00ffaa;
-    border-color:#00ffaa;
-    box-shadow:0 0 18px rgba(0,255,170,0.2);
-}
-
-/* ================= TIMELINE ================= */
-
-.timeline{
-    display:grid;
-    gap:18px;
-}
-
-.timeline-item{
-    background:rgba(15,23,42,0.75);
-    border-left:4px solid #00ffaa;
-    border-radius:18px;
-    padding:24px;
-    transition:0.3s;
-}
-
-.timeline-item:hover{
-    transform:translateX(6px);
-}
-
-.timeline-item h3{
-    margin-bottom:6px;
-}
-
-.timeline-item span{
-    color:#22d3ee;
-    font-weight:700;
-    display:block;
-    margin-bottom:8px;
-}
-
-/* ================= CONTACT ================= */
-
-.contact-box{
-    padding:50px 26px;
-    border-radius:28px;
-    text-align:center;
-    background:
-    radial-gradient(circle at top left, rgba(0,255,170,0.16), transparent 35%),
-    radial-gradient(circle at bottom right, rgba(0,174,255,0.16), transparent 30%),
-    rgba(15,23,42,0.72);
-    border:1px solid rgba(0,255,170,0.18);
-    box-shadow:0 0 40px rgba(0,255,170,0.08);
-}
-
-.contact-box h2{
-    font-size:clamp(34px,5vw,50px);
-    margin-bottom:14px;
-    font-family:'Orbitron',sans-serif;
-}
-
-.contact-box p{
-    color:#cbd5e1;
-    max-width:760px;
-    margin:0 auto 28px;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-    padding:26px;
-    text-align:center;
-    color:#94a3b8;
-    border-top:1px solid rgba(255,255,255,0.08);
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:980px){
-
-    .hero-grid,
-    .grid-4,
-    .grid-3,
-    .grid-2{
-        grid-template-columns:1fr 1fr;
+      );
+      animation: scan 3.5s linear infinite;
+      pointer-events: none;
     }
 
-    .hero-grid{
-        grid-template-columns:1fr;
-    }
-}
-
-@media(max-width:700px){
-
-    .nav-links{
-        position:absolute;
-        top:74px;
-        left:0;
-        right:0;
-        display:none;
-        flex-direction:column;
-        background:#020617;
-        padding:20px;
-        border-bottom:1px solid rgba(255,255,255,0.08);
+    @keyframes scan {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(100%); }
     }
 
-    .nav-links.active{
-        display:flex;
+    .terminal-top {
+      padding: 13px 16px;
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid rgba(34, 211, 238, 0.2);
+      display: flex;
+      gap: 8px;
+      align-items: center;
     }
 
-    .menu-btn{
-        display:block;
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 12px #22c55e;
     }
 
-    .grid-4,
-    .grid-3,
-    .grid-2{
-        grid-template-columns:1fr;
+    .dot:nth-child(2) {
+      background: #facc15;
+      box-shadow: 0 0 12px #facc15;
     }
 
-    section{
-        padding:70px 0;
+    .dot:nth-child(3) {
+      background: #ef4444;
+      box-shadow: 0 0 12px #ef4444;
     }
-}
 
-</style>
+    .terminal-body {
+      padding: 24px;
+      min-height: 350px;
+    }
+
+    .line {
+      color: #cbd5e1;
+      margin-bottom: 13px;
+      font-size: 15px;
+    }
+
+    .cmd {
+      color: #22c55e;
+    }
+
+    .cyan {
+      color: #22d3ee;
+    }
+
+    .purple {
+      color: #c084fc;
+    }
+
+    .danger {
+      color: #f87171;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 9px;
+      height: 17px;
+      background: #22c55e;
+      animation: blink 0.9s infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 46px);
+      margin-bottom: 12px;
+      color: #f8fafc;
+    }
+
+    .section-title::before {
+      content: "# ";
+      color: #22c55e;
+    }
+
+    .section-subtitle {
+      color: #94a3b8;
+      max-width: 760px;
+      margin-bottom: 36px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.72);
+      border: 1px solid rgba(34, 211, 238, 0.18);
+      border-radius: 22px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: 0.25s;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(34, 197, 94, 0.08), transparent);
+      transform: translateX(-100%);
+      transition: 0.6s;
+    }
+
+    .card:hover::before {
+      transform: translateX(100%);
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(34, 197, 94, 0.7);
+      box-shadow: 0 0 35px rgba(34, 197, 94, 0.14);
+    }
+
+    .card h3 {
+      color: #67e8f9;
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+
+    .impact-number {
+      font-size: 34px;
+      color: #22c55e;
+      font-weight: 900;
+      text-shadow: 0 0 18px rgba(34, 197, 94, 0.6);
+    }
+
+    .cve-card {
+      border-color: rgba(248, 113, 113, 0.35);
+    }
+
+    .cve-card h3 {
+      color: #f87171;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      padding: 10px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 211, 238, 0.25);
+      background: rgba(2, 6, 23, 0.65);
+      color: #d1d5db;
+      font-size: 14px;
+      transition: 0.25s;
+    }
+
+    .tag:hover {
+      color: #22c55e;
+      border-color: #22c55e;
+      box-shadow: 0 0 16px rgba(34, 197, 94, 0.3);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      border-left: 4px solid #22c55e;
+      background: rgba(15, 23, 42, 0.72);
+      border-radius: 18px;
+      padding: 23px;
+      border-top: 1px solid rgba(34, 211, 238, 0.16);
+      border-right: 1px solid rgba(34, 211, 238, 0.16);
+      border-bottom: 1px solid rgba(34, 211, 238, 0.16);
+    }
+
+    .timeline-item h3 {
+      color: #f8fafc;
+      margin-bottom: 5px;
+    }
+
+    .timeline-item span {
+      display: block;
+      color: #22d3ee;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .timeline-item p {
+      color: #cbd5e1;
+    }
+
+    .contact-box {
+      text-align: center;
+      padding: 46px 24px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.18), transparent 36%),
+        radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.16), transparent 32%),
+        rgba(15, 23, 42, 0.78);
+      border: 1px solid rgba(34, 211, 238, 0.3);
+      box-shadow: 0 0 50px rgba(34, 211, 238, 0.12);
+    }
+
+    .contact-box h2 {
+      font-size: clamp(30px, 5vw, 46px);
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      color: #cbd5e1;
+      max-width: 720px;
+      margin: 0 auto 24px;
+    }
+
+    footer {
+      padding: 26px;
+      text-align: center;
+      color: #94a3b8;
+      border-top: 1px solid rgba(34, 211, 238, 0.16);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-4,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        padding: 20px;
+        background: rgba(2, 6, 23, 0.97);
+        border-bottom: 1px solid rgba(34, 211, 238, 0.18);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+        background: none;
+        border: 1px solid rgba(34, 211, 238, 0.35);
+        color: #22c55e;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 20px;
+      }
+
+      .grid-4,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        text-align: left;
+        padding-top: 105px;
+      }
+
+      .terminal-body {
+        min-height: auto;
+        padding: 18px;
+      }
+
+      .line {
+        font-size: 13px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="matrix"></div>
+  <div class="matrix"></div>
 
-<!-- NAVBAR -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo">HackerSSG</a>
 
-<nav>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-<div class="container nav-inner">
+      <div class="nav-links" id="navLinks">
+        <a href="#impact">Impact</a>
+        <a href="#cves">CVEs</a>
+        <a href="#services">Services</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-<div class="logo">HackerSSG</div>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge-row">
+          <span class="badge">Published CVE Researcher</span>
+          <span class="badge">Web Pentesting</span>
+          <span class="badge">API Security</span>
+          <span class="badge">Hall of Fame</span>
+        </div>
 
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <h1 class="glitch">
+          Muhammad Usman<br>
+          <span>Security Researcher</span>
+        </h1>
 
-<div class="nav-links" id="navLinks">
-<a href="#impact">Impact</a>
-<a href="#cves">CVEs</a>
-<a href="#services">Services</a>
-<a href="#skills">Skills</a>
-<a href="#experience">Experience</a>
-<a href="#contact">Contact</a>
-</div>
+        <p class="hero-text">
+          Web & API Penetration Tester with published Keycloak CVEs under Red Hat,
+          Google Honourable Mention, and Hall of Fame recognitions from GitHub,
+          Mastercard, RedBull, Wolt, Code.org, Sendbird, Aurory, and more.
+        </p>
 
-</div>
+        <div class="btn-row">
+          <a href="mailto:musman.pentest@gmail.com" class="btn btn-primary">Hire Me</a>
+          <a href="#cves" class="btn btn-outline">View CVEs</a>
+          <a href="https://www.linkedin.com/in/muhammad-usman-481876252/" target="_blank" class="btn btn-outline">LinkedIn</a>
+        </div>
+      </div>
 
-</nav>
+      <div class="terminal">
+        <div class="terminal-top">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
 
-<!-- HERO -->
+        <div class="terminal-body">
+          <div class="line"><span class="cmd">$ whoami</span></div>
+          <div class="line cyan">Muhammad Usman / HackerSSG</div>
 
-<header class="hero">
+          <div class="line"><span class="cmd">$ cat focus.txt</span></div>
+          <div class="line">Web Pentesting | API Security | Recon | Bug Bounty</div>
 
-<div class="container hero-grid">
+          <div class="line"><span class="cmd">$ nuclei -u target.com</span></div>
+          <div class="line purple">[+] High-impact vulnerabilities identified</div>
 
-<div>
+          <div class="line"><span class="cmd">$ grep CVE research.log</span></div>
+          <div class="line danger">CVE-2025-14082 discovered in Keycloak</div>
+          <div class="line danger">CVE-2025-14083 discovered in Keycloak</div>
 
-<div class="badges">
-<div class="badge">Published CVE Researcher</div>
-<div class="badge">Web Pentesting</div>
-<div class="badge">API Security</div>
-<div class="badge">Hall of Fame</div>
-</div>
+          <div class="line"><span class="cmd">$ cat recognition.txt</span></div>
+          <div class="line cyan">Google Honourable Mention + Multiple Hall of Fames</div>
 
-<h1 class="glitch">
-Muhammad Usman<br>
-<span>Security Researcher</span>
-</h1>
+          <div class="line"><span class="cmd">$</span> <span class="cursor"></span></div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<p class="hero-text">
-Web & API Penetration Tester with published CVEs in Keycloak under Red Hat,
-Google Honourable Mention, and Hall of Fame recognitions from GitHub,
-Mastercard, RedBull, Wolt, Code.org, Sendbird, Aurory, and more.
-</p>
+  <section id="impact">
+    <div class="container">
+      <h2 class="section-title">Security Impact</h2>
+      <p class="section-subtitle">
+        Proof matters. This portfolio is built around public security impact, not empty buzzwords.
+      </p>
 
-<div class="btn-row">
+      <div class="grid-4">
+        <div class="card">
+          <div class="impact-number">2</div>
+          <h3>Published CVEs</h3>
+          <p>Discovered in Keycloak under Red Hat.</p>
+        </div>
 
-<a
-href="https://mail.google.com/mail/?view=cm&fs=1&to=musman.pentest@gmail.com&su=Security%20Testing%20Inquiry"
-target="_blank"
-class="btn btn-primary"
+        <div class="card">
+          <div class="impact-number">70+</div>
+          <h3>Reported Bugs</h3>
+          <p>Across Bugcrowd, Intigriti, HackerOne, and YesWeHack.</p>
+        </div>
+
+        <div class="card">
+          <div class="impact-number">HOF</div>
+          <h3>Hall of Fame</h3>
+          <p>GitHub, Mastercard, RedBull, Wolt, Code.org, Sendbird, Aurory.</p>
+        </div>
+
+        <div class="card">
+          <div class="impact-number">G</div>
+          <h3>Google Mention</h3>
+          <p>Honourable Mention for responsible security research.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cves">
+    <div class="container">
+      <h2 class="section-title">Published CVEs</h2>
+      <p class="section-subtitle">
+        Official Red Hat CVE records connected to Keycloak vulnerability research.
+      </p>
+
+      <div class="grid-2">
+        <div class="card cve-card">
+          <h3>CVE-2025-14082</h3>
+          <p>
+            Security vulnerability discovered and responsibly disclosed in Keycloak
+            under Red Hat.
+          </p>
+          <br>
+          <a class="btn btn-outline" target="_blank" href="https://access.redhat.com/security/cve/cve-2025-14082">
+            View Official Red Hat Link
+          </a>
+        </div>
+
+        <div class="card cve-card">
+          <h3>CVE-2025-14083</h3>
+          <p>
+            Security vulnerability discovered and responsibly disclosed in Keycloak
+            under Red Hat.
+          </p>
+          <br>
+          <a class="btn btn-outline" target="_blank" href="https://access.redhat.com/security/cve/cve-2025-14083">
+            View Official Red Hat Link
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
+      <p class="section-subtitle">
+        Focused security testing for teams that need real findings, clean reports, and practical remediation guidance.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Web Application Pentest</h3>
+          <p>Authentication, authorization, access control, injection, XSS, file upload, session, and business logic testing.</p>
+        </div>
+
+        <div class="card">
+          <h3>REST API Security</h3>
+          <p>BOLA/IDOR, broken authentication, excessive data exposure, mass assignment, weak rate limits, and privilege issues.</p>
+        </div>
+
+        <div class="card">
+          <h3>Recon & Attack Surface</h3>
+          <p>Asset discovery, exposed services, sensitive files, misconfigurations, subdomains, and automation-based discovery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills & Tools</h2>
+      <p class="section-subtitle">
+        Tools are not the skill. The skill is knowing what to test, how to prove impact, and how to report it clearly.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Burp Suite</span>
+        <span class="tag">Nmap</span>
+        <span class="tag">Nuclei</span>
+        <span class="tag">Reconnaissance</span>
+        <span class="tag">REST API Testing</span>
+        <span class="tag">OWASP Top 10</span>
+        <span class="tag">IDOR / BOLA</span>
+        <span class="tag">XSS</span>
+        <span class="tag">SQL Injection</span>
+        <span class="tag">Access Control</span>
+        <span class="tag">Business Logic Bugs</span>
+        <span class="tag">Bash Automation</span>
+        <span class="tag">Vulnerability Reporting</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="recognition">
+    <div class="container">
+      <h2 class="section-title">Recognitions</h2>
+      <p class="section-subtitle">
+        Public credibility from major organizations and security programs.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Google Honourable Mention</h3>
+          <p>Recognized for responsible vulnerability disclosure and security research contribution.</p>
+        </div>
+
+        <div class="card">
+          <h3>GitHub Hall of Fame</h3>
+          <p>Recognized for high-quality security vulnerability discoveries.</p>
+        </div>
+
+        <div class="card">
+          <h3>Global HOF Mentions</h3>
+          <p>Mastercard, RedBull, Wolt, Code.org, Sendbird, Aurory, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Web Penetration Tester — Securetackles</h3>
+          <span>2023 - 2024</span>
+          <p>Performed web application security assessments, wrote actionable reports, and helped clients reduce security risk.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Bug Hunter — Bugcrowd</h3>
+          <span>2024 - Present</span>
+          <p>Reported 40+ vulnerabilities and earned Hall of Fame recognitions from Mastercard, Aurory, Sendbird, Code.org, and others.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Bug Hunter — Intigriti</h3>
+          <span>2024 - Present</span>
+          <p>Reported 20+ vulnerabilities and achieved Hall of Fame recognitions including RedBull, Wolt, and more.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Bug Hunter — HackerOne</h3>
+          <span>2025 - Present</span>
+          <p>Recognized in GitHub’s Hall of Fame and reported multiple vulnerabilities through responsible disclosure programs.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Bug Hunter — YesWeHack</h3>
+          <span>2025 - Present</span>
+          <p>Discovered security bugs, received Hall of Fame recognition, and earned bounty rewards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+
+      <div class="card">
+        <h3>Bachelor in Software Engineering</h3>
+        <p>Bahria University — 2022 to Present</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <h2>Need Web or API Security Testing?</h2>
+        <p>
+          Available for web application penetration testing, REST API security testing,
+          vulnerability assessments, responsible disclosure, and bug bounty collaboration.
+        </p>
+
+        <div class="btn-row" style="justify-content:center;">
+          <a 
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=musman.pentest@gmail.com&su=Security%20Testing%20Inquiry"
+  target="_blank"
+  class="btn btn-primary"
 >
-Mail Me
+  Mail Me
 </a>
-
-<a href="#cves" class="btn btn-outline">
-View CVEs
-</a>
-
-<a
-href="https://www.linkedin.com/in/muhammad-usman-481876252/"
-target="_blank"
-class="btn btn-outline"
->
-LinkedIn
-</a>
-
-</div>
-
-</div>
-
-<!-- TERMINAL -->
-
-<div class="terminal">
-
-<div class="terminal-top">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-
-<div class="terminal-body">
-
-<div class="line">
-<span class="cmd">$ whoami</span>
-</div>
-
-<div class="line cyan">
-Muhammad Usman / HackerSSG
-</div>
-
-<div class="line">
-<span class="cmd">$ cat focus.txt</span>
-</div>
-
-<div class="line">
-Web Pentesting | API Security | Recon | Bug Bounty
-</div>
-
-<div class="line">
-<span class="cmd">$ nuclei -u target.com</span>
-</div>
-
-<div class="line purple">
-[+] High-impact vulnerabilities identified
-</div>
-
-<div class="line">
-<span class="cmd">$ grep CVE research.log</span>
-</div>
-
-<div class="line red">
-CVE-2025-14082 discovered in Keycloak
-</div>
-
-<div class="line red">
-CVE-2025-14083 discovered in Keycloak
-</div>
-
-<div class="line">
-<span class="cmd">$ cat recognition.txt</span>
-</div>
-
-<div class="line cyan">
-Google Honourable Mention + Multiple Hall of Fames
-</div>
-
-<div class="line">
-<span class="cmd">$</span>
-<span class="cursor"></span>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</header>
-
-<!-- IMPACT -->
-
-<section id="impact">
-
-<div class="container">
-
-<h2 class="section-title">
-Security <span>Impact</span>
-</h2>
-
-<p class="section-subtitle">
-Public proof matters more than generic cybersecurity buzzwords.
-</p>
-
-<div class="grid-4">
-
-<div class="card">
-<div class="impact-number">2</div>
-<h3>Published CVEs</h3>
-<p>Keycloak vulnerabilities published under Red Hat.</p>
-</div>
-
-<div class="card">
-<div class="impact-number">70+</div>
-<h3>Reported Bugs</h3>
-<p>Across Bugcrowd, Intigriti, HackerOne, and YesWeHack.</p>
-</div>
-
-<div class="card">
-<div class="impact-number">HOF</div>
-<h3>Hall of Fame</h3>
-<p>GitHub, Mastercard, RedBull, Wolt, Sendbird, Aurory, and more.</p>
-</div>
-
-<div class="card">
-<div class="impact-number">G</div>
-<h3>Google Mention</h3>
-<p>Recognized for responsible security research contribution.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CVEs -->
-
-<section id="cves">
-
-<div class="container">
-
-<h2 class="section-title">
-Published <span>CVEs</span>
-</h2>
-
-<p class="section-subtitle">
-Official Red Hat CVE records related to Keycloak security research.
-</p>
-
-<div class="grid-2">
-
-<div class="card">
-
-<h3>CVE-2025-14082</h3>
-
-<p>
-Security vulnerability discovered and responsibly disclosed in Keycloak under Red Hat.
-</p>
-
-<br>
-
-<a
-href="https://access.redhat.com/security/cve/cve-2025-14082"
-target="_blank"
-class="btn btn-outline"
->
-Official Red Hat Link
-</a>
-
-</div>
-
-<div class="card">
-
-<h3>CVE-2025-14083</h3>
-
-<p>
-Security vulnerability discovered and responsibly disclosed in Keycloak under Red Hat.
-</p>
-
-<br>
-
-<a
-href="https://access.redhat.com/security/cve/cve-2025-14083"
-target="_blank"
-class="btn btn-outline"
->
-Official Red Hat Link
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- SERVICES -->
-
-<section id="services">
-
-<div class="container">
-
-<h2 class="section-title">
-Security <span>Services</span>
-</h2>
-
-<p class="section-subtitle">
-Focused testing for organizations that need real vulnerability discovery and practical remediation guidance.
-</p>
-
-<div class="grid-3">
-
-<div class="card">
-<h3>Web Application Pentest</h3>
-<p>
-Authentication, authorization, IDOR, XSS, SQLi, business logic flaws,
-session management, and file upload testing.
-</p>
-</div>
-
-<div class="card">
-<h3>REST API Security</h3>
-<p>
-BOLA/IDOR, excessive data exposure, broken authentication,
-mass assignment, privilege escalation, and access control testing.
-</p>
-</div>
-
-<div class="card">
-<h3>Recon & Attack Surface</h3>
-<p>
-Subdomain discovery, exposed services, sensitive files,
-automation-based reconnaissance, and misconfiguration analysis.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- SKILLS -->
-
-<section id="skills">
-
-<div class="container">
-
-<h2 class="section-title">
-Skills & <span>Tools</span>
-</h2>
-
-<p class="section-subtitle">
-Methodology matters more than tools, but these are the technologies used in practical assessments.
-</p>
-
-<div class="tags">
-
-<div class="tag">Burp Suite</div>
-<div class="tag">Nmap</div>
-<div class="tag">Nuclei</div>
-<div class="tag">REST API Testing</div>
-<div class="tag">Reconnaissance</div>
-<div class="tag">OWASP Top 10</div>
-<div class="tag">IDOR / BOLA</div>
-<div class="tag">XSS</div>
-<div class="tag">SQL Injection</div>
-<div class="tag">Access Control</div>
-<div class="tag">Business Logic Bugs</div>
-<div class="tag">Bash Automation</div>
-<div class="tag">Vulnerability Reporting</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- EXPERIENCE -->
-
-<section id="experience">
-
-<div class="container">
-
-<h2 class="section-title">
-Professional <span>Experience</span>
-</h2>
-
-<div class="timeline">
-
-<div class="timeline-item">
-<h3>Web Penetration Tester — Securetackles</h3>
-<span>2023 - 2024</span>
-<p>
-Performed web application security assessments and provided actionable remediation guidance.
-</p>
-</div>
-
-<div class="timeline-item">
-<h3>Bug Hunter — Bugcrowd</h3>
-<span>2024 - Present</span>
-<p>
-Reported 40+ vulnerabilities and achieved Hall of Fame recognitions from Mastercard,
-Aurory, Sendbird, Code.org, and others.
-</p>
-</div>
-
-<div class="timeline-item">
-<h3>Bug Hunter — Intigriti</h3>
-<span>2024 - Present</span>
-<p>
-Reported vulnerabilities and achieved Hall of Fame recognitions including RedBull and Wolt.
-</p>
-</div>
-
-<div class="timeline-item">
-<h3>Bug Hunter — HackerOne</h3>
-<span>2025 - Present</span>
-<p>
-Recognized in GitHub’s Hall of Fame for consistent, high-quality vulnerability findings.
-</p>
-</div>
-
-<div class="timeline-item">
-<h3>Bug Hunter — YesWeHack</h3>
-<span>2025 - Present</span>
-<p>
-Discovered multiple vulnerabilities and received Hall of Fame recognition and bounty rewards.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<div class="container">
-
-<div class="contact-box">
-
-<h2>Need Security Testing?</h2>
-
-<p>
-Available for web application penetration testing, REST API security assessments,
-vulnerability research, responsible disclosure collaboration, and consulting.
-</p>
-
-<div class="btn-row" style="justify-content:center;">
-
-<a
-href="https://mail.google.com/mail/?view=cm&fs=1&to=musman.pentest@gmail.com&su=Security%20Testing%20Inquiry"
-target="_blank"
-class="btn btn-primary"
->
-Mail Me
-</a>
-
-<a
-href="https://www.linkedin.com/in/muhammad-usman-481876252/"
-target="_blank"
-class="btn btn-outline"
->
-LinkedIn Profile
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-© 2026 Muhammad Usman | HackerSSG | Web & API Security Researcher
-</footer>
-
-<script>
-
-function toggleMenu(){
-    document.getElementById("navLinks").classList.toggle("active");
-}
-
-document.querySelectorAll(".nav-links a").forEach(link=>{
-    link.addEventListener("click",()=>{
+          <a href="https://www.linkedin.com/in/muhammad-usman-481876252/" target="_blank" class="btn btn-outline">LinkedIn Profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Muhammad Usman | HackerSSG | Web & API Security Researcher
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
         document.getElementById("navLinks").classList.remove("active");
+      });
     });
-});
-
-</script>
+  </script>
 
 </body>
 </html>
