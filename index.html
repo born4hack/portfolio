@@ -639,6 +639,39 @@
         width: 100%;
       }
     }
+
+
+    .experience-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.exp-link-btn {
+  padding: 7px 12px !important;
+  font-size: 12px !important;
+  min-height: auto !important;
+  width: auto !important;
+  white-space: nowrap;
+  border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+
+  .experience-title {
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .exp-link-btn {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    width: auto !important;
+  }
+
+}
   </style>
 </head>
 
@@ -882,173 +915,142 @@
       </div>
     </div>
   </section>
+<section id="experience">
+  <div class="container">
+    <h2 class="section-title">Experience</h2>
 
-  <section id="experience">
-    <div class="container">
-      <h2 class="section-title">Experience</h2>
+    <div class="timeline">
 
-      <div class="timeline">
-        <div class="timeline-item">
-         <h3>
-  Web Penetration Tester — Apprise Cyber
+      <div class="timeline-item">
+        <h3 class="experience-title">
+          Web Penetration Tester — Apprise Cyber
 
-  <a
-    href="certificates/apprise-cyber-experience-certificate.pdf"
-    download
-    style="
-      margin-left:12px;
-      color: var(--green);
-      font-size:18px;
-      font-weight:800;
-      text-decoration:none;
-      transition:0.2s ease;
-      display:inline-block;
-    "
-    onmouseover="this.style.transform='translateY(-2px) scale(1.1)'"
-    onmouseout="this.style.transform='translateY(0) scale(1)'"
-  >
-    ↗
-  </a>
-</h3>
-          <span>2024 - 2025</span>
-          <p>Conducted web application security assessments, delivered detailed remediation reports, and assisted clients in strengthening their overall security posture.</p>
-        </div>
-        <div class="timeline-item">
-          <h3>
-  Web Penetration Tester Intern — Securetackles
+          <a
+            href="certificates/apprise-cyber-experience-certificate.pdf"
+            download
+            class="btn btn-outline exp-link-btn"
+          >
+            Certificate →
+          </a>
+        </h3>
 
-  <a
-    href="certificates/securetackles-internship-certificate.pdf"
-    download
-    style="
-      margin-left:12px;
-      color: var(--green);
-      font-size:18px;
-      font-weight:800;
-      text-decoration:none;
-      transition:0.2s ease;
-      display:inline-block;
-    "
-    onmouseover="this.style.transform='translateY(-2px) scale(1.1)'"
-    onmouseout="this.style.transform='translateY(0) scale(1)'"
-  >
-    ↗
-  </a>
-</h3>
-          <span>2023 - 2024</span>
-          <p>Performed web application security assessments, prepared actionable reports, and helped clients reduce security risk.</p>
-        </div>
+        <span>2024 - 2025</span>
 
-        <div class="timeline-item">
-        <h3>
-  Security Researcher — Bugcrowd
-
-  <a
-    href="https://bugcrowd.com/h/HackerSSG"
-    target="_blank"
-   style="
-      margin-left:12px;
-      color: var(--green);
-      font-size:18px;
-      font-weight:800;
-      text-decoration:none;
-      transition:0.2s ease;
-      display:inline-block;
-    "
-    onmouseover="this.style.transform='translateY(-2px) scale(1.1)'"
-    onmouseout="this.style.transform='translateY(0) scale(1)'"
-  >
-    ↗
-  </a>
-</h3>
-          <span>2024 - Present</span>
-          <p>
-            Reported multiple validated vulnerabilities across private and public programs,
-            resulting in Hall of Fame recognitions from organizations including Mastercard,
-            Sendbird, Aurory, and Code.org.
-          </p>
-        </div>
-
-        <div class="timeline-item">
-        <h3>
-  Security Researcher — Intigriti
-
-  <a
-    href="https://app.intigriti.com/profile/commadno6407"
-    target="_blank"
-   style="
-      margin-left:12px;
-      color: var(--green);
-      font-size:18px;
-      font-weight:800;
-      text-decoration:none;
-      transition:0.2s ease;
-      display:inline-block;
-    "
-    onmouseover="this.style.transform='translateY(-2px) scale(1.1)'"
-    onmouseout="this.style.transform='translateY(0) scale(1)'"
-  >
-    ↗
-  </a>
-</h3>
-          <span>2024 - Present</span>
-          <p>Reported validated vulnerabilities and earned Hall of Fame recognitions from Red Bull, Wolt, and other security programs.</p>
-        </div>
-
-        <div class="timeline-item">
-         <h3>
-  Security Researcher — HackerOne
-
-  <a
-    href="https://hackerone.com/hackerssg?type=user"
-    target="_blank"
-  style="
-      margin-left:12px;
-      color: var(--green);
-      font-size:18px;
-      font-weight:800;
-      text-decoration:none;
-      transition:0.2s ease;
-      display:inline-block;
-    "
-    onmouseover="this.style.transform='translateY(-2px) scale(1.1)'"
-    onmouseout="this.style.transform='translateY(0) scale(1)'"
-  >
-    ↗
-  </a>
-</h3>
-          <span>2025 - Present</span>
-          <p>Recognized in GitHub’s Hall of Fame and reported vulnerabilities through responsible disclosure programs.</p>
-        </div>
-
-        <div class="timeline-item">
-     <h3>
-  Security Researcher — YesWeHack
-
-  <a
-    href="https://yeswehack.com/hunters/hackerssg-n#latest-hacktivity"
-    target="_blank"
-    style="
-      margin-left:12px;
-      color: var(--green);
-      font-size:18px;
-      font-weight:800;
-      text-decoration:none;
-      transition:0.2s ease;
-      display:inline-block;
-    "
-    onmouseover="this.style.transform='translateY(-2px) scale(1.1)'"
-    onmouseout="this.style.transform='translateY(0) scale(1)'"
-  >
-    ↗
-  </a>
-</h3>
-          <span>2025 - Present</span>
-          <p>Discovered valid security vulnerabilities, received Hall of Fame recognition, and earned bounty rewards.</p>
-        </div>
+        <p>
+          Conducted web application security assessments, delivered detailed remediation reports,
+          and assisted clients in strengthening their overall security posture.
+        </p>
       </div>
+
+      <div class="timeline-item">
+        <h3 class="experience-title">
+          Web Penetration Tester Intern — Securetackles
+
+          <a
+            href="certificates/securetackles-internship-certificate.pdf"
+            download
+            class="btn btn-outline exp-link-btn"
+          >
+            Certificate →
+          </a>
+        </h3>
+
+        <span>2023 - 2024</span>
+
+        <p>
+          Performed web application security assessments, prepared actionable reports,
+          and helped clients reduce security risk.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3 class="experience-title">
+          Security Researcher — Bugcrowd
+
+          <a
+            href="https://bugcrowd.com/h/HackerSSG"
+            target="_blank"
+            class="btn btn-outline exp-link-btn"
+          >
+            Profile →
+          </a>
+        </h3>
+
+        <span>2024 - Present</span>
+
+        <p>
+          Reported multiple validated vulnerabilities across private and public programs,
+          resulting in Hall of Fame recognitions from organizations including Mastercard,
+          Sendbird, Aurory, and Code.org.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3 class="experience-title">
+          Security Researcher — Intigriti
+
+          <a
+            href="https://app.intigriti.com/profile/commadno6407"
+            target="_blank"
+            class="btn btn-outline exp-link-btn"
+          >
+            Profile →
+          </a>
+        </h3>
+
+        <span>2024 - Present</span>
+
+        <p>
+          Reported validated vulnerabilities and earned Hall of Fame recognitions
+          from Red Bull, Wolt, and other security programs.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3 class="experience-title">
+          Security Researcher — HackerOne
+
+          <a
+            href="https://hackerone.com/hackerssg?type=user"
+            target="_blank"
+            class="btn btn-outline exp-link-btn"
+          >
+            Profile →
+          </a>
+        </h3>
+
+        <span>2025 - Present</span>
+
+        <p>
+          Recognized in GitHub’s Hall of Fame and reported vulnerabilities
+          through responsible disclosure programs.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3 class="experience-title">
+          Security Researcher — YesWeHack
+
+          <a
+            href="https://yeswehack.com/hunters/hackerssg-n#latest-hacktivity"
+            target="_blank"
+            class="btn btn-outline exp-link-btn"
+          >
+            Profile →
+          </a>
+        </h3>
+
+        <span>2025 - Present</span>
+
+        <p>
+          Discovered valid security vulnerabilities, received Hall of Fame recognition,
+          and earned bounty rewards.
+        </p>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <section id="education">
     <div class="container">
